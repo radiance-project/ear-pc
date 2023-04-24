@@ -6,7 +6,7 @@ This Github repo only include frontend part for everyone to contribute. The back
 
 # Install
 1. Make sure you have a Windows computer running at least Windows 10.
-2. Download the latest release from [here](https://github.com/Lisra-git/ear-PC/releases)
+2. Download the latest release from [here](https://github.com/radiance-project/ear-pc/releases)
 
 If you want to contribute, we recommend cloning the repo using
 ```git clone https://github.com/Lisra-git/ear-PC.git```
