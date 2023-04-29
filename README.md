@@ -50,7 +50,7 @@ We plan to expand that list if new devices come out.
 
 > How do I contribute?
 
-Easy, just create a new issue or push request and we will merge your changes after review
+Easy, just create a new issue or pull request and we will merge your changes after review
 <br>
 <br>
 If you still have questions, don't hesitate to reach out to [RapidZapper](https://discord.com/users/577059129097584640) or [Bendix](https://discord.com/users/462340067864870923) on Discord
