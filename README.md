@@ -4,13 +4,13 @@
 
 
 Hi! This is the repo for our unofficial port of Nothing X to PC.
-This Github repo only include frontend part for everyone to contribute. The backend is kept private for the moment.
+This Github repo only includes the frontend part for everyone to contribute. The backend is kept private for the moment, more on that in our faq.
 
 
 # Install
 1. Make sure you have a Windows computer running at least Windows 10.
-2. Download launcher.exe in the latest release from [here](https://github.com/radiance-project/ear-pc/releases)
-3. Run the installer and let it download components (the installer will allow to update the app later)
+2. Download the ``launcher.exe`` file from the latest release [here](https://github.com/radiance-project/ear-pc/releases)
+3. Run the installer and let it download all the components (the installer will allow you to update the app later)
 4. Launch the app and enjoy!
 
 If you want to contribute, we recommend cloning the repo using
@@ -20,17 +20,31 @@ You can build your dev environment this way:
 1. Install Python 3.10.0 from [here] (https://www.python.org/downloads/release/python-3100/)
 2. Install Pybluez using ``python -m pip install -e git+https://github.com/pybluez/pybluez.git#egg=pybluez ``
 3. Create a folder to store the project.
-3. Get electron.zip from the latest version and extract it to the root directory of the folder.
+3. Get the electron.zip file from the latest version and extract it to the root directory of the folder.
 4. Take the frontend files (res folder) and place the folder in the root directory of your folder.
 5. Take main.pyc and put it in the root directory of your folder.
-6. Run using ``python main.pyc`` in the root directory of your folder.
+6. Run the app using ``python main.pyc`` in the root directory of your folder.
 
+## Features
+We offer an app that uses two seperate windows. 
+`Main Window:`
+ - Battery percentage
+ - Equalizer settings with custom Equalizer for Ear (stick) and Ear (2)
+ - Quick Settings (In-Ear Detection, Low Latency Mode, Firmware version) and (Ear (2) only) Personalized ANC toggle and Ear Tip Fit Test
+ - Gestures
+ - Find my Earbuds 
+ - Case Battery Status LED (Ear (1) only)
+ 
+ as well as as a `Tray Window`. This window can be launched by clicking on the ear (PC) icon in your taskbar and offers:
+  - ANC control (Ear(1) & Ear(2))
+  - Battery percentage
+  - Personalized ANC (Ear (2) only) 
 
 ## FAQ
 
 > Are you planning on bringing this to mac and linux as well?
 
-Mac is already worked on, but since Pybluez rely on old libraries, some work around Apple BT API is needed. 
+Mac is already being worked on, but since Pybluez rely on old libraries, some work around the Apple BT API is needed. 
 Linux is also coming soon.
 We are working on a way to make it work with the installer.
 
