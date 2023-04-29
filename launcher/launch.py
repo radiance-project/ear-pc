@@ -155,7 +155,7 @@ def main():
 			print("Ear (PC) is up to date")
 			input("Press Enter to exit...")
 		elif (installed < latest):
-			print("A new update for Ear (PC) is available, launcher will download the latest version")
+			print("A new update for Ear (PC) is available, the launcher will download the latest version and exit")
 			latest = getLatestVersionJson()
 			#check if electron and base is up to date
 			base, electron = getBaseAndElectronInstalledVersion()
@@ -165,10 +165,11 @@ def main():
 				downloadLatestRelease('base')
 			elif (electron < latest['electronVersion']):
 				downloadLatestRelease('electron')
+			input("Press Enter to exit...")
 	else:
 		if not os.path.exists(appdir):
 			os.makedirs(appdir)
-		print("This is the first install, launcher will download package required to use Ear(PC)\nEstimated download size is around 150MB")
+		print("This is the first install, the launcher will download package required to use Ear(PC)\nThe estimated download size is around 150MB")
 		latest = getLatestRelease()
 		print("Downloading Ear (PC) version " + latest)
 		downloadLatestRelease('all')
