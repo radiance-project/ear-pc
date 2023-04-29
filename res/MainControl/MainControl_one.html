@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="http://localhost:17079/eel.js"></script>
+<script src="../js/one.js"></script>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ear (1)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link href="../global.css" rel="stylesheet" />
+</head>
+
+<body style="width: 800px; height: 710px;">
+    <div id="container_one"
+         class=" w-fit bg-black/75 text-white rounded-xl overflow-hidden float-right ease-in-out duration-300"
+         style="font-family: NothingNormal2; height: 710px; width: 800px;">
+
+        <div id="container_two" class=" w-fit bg-black/50 backdrop-blur-2xl text-white ease-in-out duration-300"
+             style="font-family: NothingNormal2;  height: 710px; width: 800px; margin-top: -20px; ">
+
+            <div id="popup_container" class="h-screen w-full absolute z-[-10] opacity-0 ease-in-out duration-300">
+                <div id="popup_background" class="h-screen w-full bg-black opacity-[0.5]" onclick="closePopUp()"></div>
+                <div id="popup_content" class="z-[-10]">
+                    ERROR: There was an error displaying this popup. Please report it to the developers with steps to reproduce the error
+                </div>
+            </div>
+
+            <section class="w-full h-8 absolute" style="z-index: 300;">
+                <div id="draggable" class="w-[750px] h-8 absolute"></div>
+                <div style="font-family: Ndot-55; float: right; margin-right: 20px; margin-top: 5px; cursor: pointer; z-index: 400;"
+                     onclick="window.close()">_</div>
+            </section>
+            <section onclick="transBackToLeft('MainControl')"
+                     style="z-index: 100; opacity: 0; position: absolute; top: 20px; cursor: pointer;" id="back">
+                <svg width="30" height="30" class="ml-8 mb-5">
+                    <image xlink:href="../assets/back.svg" width="30" height="30" />
+                </svg>
+            </section>
+            <div id="cont" class="mt-5">
+                <div id="test" class="top-24 left-10 absolute ease-in-out duration-300"
+                     style="opacity: 0; width: 300px; z-index: -10">
+                    Customisable
+                    <div class="mt-1 bg-[#1B1D1F] rounded-xl pt-5 pb-5 mt-4" style="cursor: pointer;"
+                         onclick="changeGesture('triple')">
+                        <div id="setting_title" class=" text-sm ml-5 text-gray-200">3x tap</div>
+                        <div id="settings_subtitle_triple" class="text-sm ml-5 text-gray-500">Skip back</div>
+                    </div>
+                    <div class="mt-1 bg-[#1B1D1F] rounded-xl pt-5 pb-5 mt-4" style="cursor: pointer;"
+                         onclick="changeGesture('hold')">
+                        <div id="setting_title" class=" text-sm ml-5 text-gray-200">Tap and hold</div>
+                        <div id="settings_subtitle_hold" class="text-sm ml-5 text-gray-500">
+                            Change ANC type<br />Decline
+                            incoming call
+                        </div>
+                    </div>
+                    <section class="mt-10">Not customisable</section>
+                    <div class="mt-1 bg-[#1B1D1F] rounded-xl pt-5 pb-5 mt-4">
+                        <div id="setting_title" class=" text-sm ml-5 text-gray-200">2x tab</div>
+                        <div id="settings_subtitle" class="text-sm ml-5 text-gray-500">Play / Pause music</div>
+                    </div>
+                    <div class="mt-1 bg-[#1B1D1F] rounded-xl pt-5 pb-5 mt-4">
+                        <div id="setting_title" class=" text-sm ml-5 text-gray-200">Slide</div>
+                        <div id="settings_subtitle" class="text-sm ml-5 text-gray-500">Change Volume</div>
+                    </div>
+
+                </div>
+                <!-- <IoSettingsOutline class="text-white h-7 w-7 mt-5 ml-5 -mb-12 absolute ease-in-out duration-300 cursor-pointer hover:text-[#1B1D1F]" id="settings_icon" /> -->
+                <div style="margin: 20px; ">
+                    <div name="logo" class="w-full">
+                        <div id="prod_name" style="font-family: Ndot-55; opacity: 100; padding-top: 30px; "
+                             class="w-full text-center pt-8 text-4xl duration-300 ease-in-out">ear (1)</div>
+                        <div id="image-container"
+                             class='justify-center items-center flex relative ease-in-out duration-300'>
+                            <div id="left_ear" class='w-52 ease-in-out duration-300'>
+                                <img src="../assets/nothing_connected_2.png"
+                                     class='h-44 ml-[40px] duration-500 ease-in-out relative cursor-pointer'
+                                     onclick="transToLeftGest('l'); loadCurrentGestures('l')" id="left_ear_peace"
+                                     style="z-Index:100; margin: 0 0 0 40px" />
+                                <div id="left_ear_battery" class="ease-in-out duration-300" style="opacity: 100;">
+                                    <div id="battery-l" class='text-center'>
+                                        40% L
+                                    </div>
+                                    <div id="battery_bar_l" class='w-20 m-auto mt-2 rounded-md bg-gray-600'>
+                                        <div id="battery_bar_fill_l" class="bg-white h-2 rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="right_ear" class='w-52 w-34 ease-in-out duration-300'>
+                                <img src="../assets/nothing_connected.png"
+                                     class='h-44 w-34 margin-auto duration-[2s] ease-in-out cursor-pointer'
+                                     onclick="transToLeftGest('r'); loadCurrentGestures('r')" id="right_ear_peace" style="margin: auto;" />
+                                <div id="right_ear_battery" class="ease-in-out duration-300" style="opacity: 100">
+                                    <div id="battery-r" class='text-center'>
+                                        40% R
+                                    </div>
+                                    <div id="battery_bar_r" class='w-20 m-auto mt-2 rounded-md bg-gray-600'>
+                                        <div id="battery_bar_fill_r" class="bg-white h-2 rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ring_button" class="text-center m-auto w-fit -mb-8 mt-3 ease-in-out duration-300" onclick="ringBuds()">
+                            <div id="ring_button-c" class="p-1 pl-7 -mr-32 pr-7 border-red-900 border-[2px] text-red-900 cursor-pointer font-bold  rounded-full mr-3 text-sm hover:bg-red-900 hover:text-white ease-in-out duration-300">Ring</div>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-4 grid-cols-2 grid-rows-1 m-5 mt-0 -mb-3" style="margin-bottom: 60px;">
+                        <div id="pages_container" class="ease-in-out duration-300" style="opacity: 100; width: 305px; height: 270px;">
+                            <div id="eq_container" class="mt-12 bg-[#1B1D1F] ease-in-out duration-300 rounded-xl pt-2 pb-2 " style="height: 210px;">
+                                <div id="eq_container_t" class="relative">
+                                    <!-- PAGE 1 -->
+                                    <div id="page_1_container" class="ease-in-out duration-300">
+                                        <div class="w-fit flex m-auto text-md mb-5 mt-2">
+                                            NOISE CONTROL
+                                        </div>
+                                        <div id="selector"
+                                             class="w-20 p-2 bg-white rounded-full h-[38px] -mb-[58px] ml-4 z-1 relative ease-in-out duration-200">
+                                        </div>
+                                        <div class="w-fit grid grid-cols-3 grid-rows-1 bg-black gap-4 m-auto mt-5 rounded-full ml">
+                                            <div id="one"
+                                                 class="p-2 text-center w-20 ease-in-out duration-150 z-[10] relative text-white cursor-pointer"
+                                                 onclick="setANC(0)">
+                                                <svg class="h-[23px] mt-[1px] ml-[20px] relative" id="ANC_on" style="width: 23px; fill: white !important;">
+                                                    <use xlink:href="../assets/anc_on_icon.svg#load"></use>
+                                                </svg>
+                                            </div>
+                                            <div id="two"
+                                                 class="p-2 text-center w-20 ease-in-out duration-150 z-[10] relative text-white cursor-pointer"
+                                                 onclick="setANC(1)">
+                                                <svg class="h-[23px] mt-[1px] ml-[20px] relative" id="trans_on" style="width: 23px; fill: white !important;">
+                                                    <use xlink:href="../assets/anc_transparent_icon.svg#load"></use>
+                                                </svg>
+                                            </div>
+                                            <div id="three"
+                                                 class="p-2 text-center w-20 ease-in-out duration-150 z-[10] relative text-white cursor-pointer"
+                                                 onclick="setANC(2)">
+                                                <svg class="h-[23px] mt-[1px] ml-[20px] relative" id="anc_off" style="width: 23px; fill: white !important;">
+                                                    <use xlink:href="../assets/anc_off_icon.svg#load"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="w-fit grid grid-cols-3 grid-rows-1 gap-4 m-auto text-[10px] mt-2">
+                                            <div id="desc_one" class=" text-center w-20">NOISE<br />CANCELLATION</div>
+                                            <div id="desc_two" class="text-center w-20">TRANSPARENCY</div>
+                                            <div id="desc_three" class=" text-center w-20">Off</div>
+                                        </div>
+                                        <div id="anc_strength_selector" class="ease-in-out duration-300">
+                                            <div class="w-1/3 grid ease-out duration-200 grid-cols-2 grid-rows-1 bg-black gap-4 m-auto mt-2 rounded-full h-5 opacity-100">
+                                                <div id="stage_one"
+                                                     class="p-2 text-center ease-in-out duration-150 z-[10] relative cursor-pointer"
+                                                     onclick="setANC(3)">
+                                                    <div id="stage_one_button"
+                                                         class="w-1 h-1 bg-white ease-in-out duration-200 rounded-full"></div>
+                                                </div>
+                                                <div id="stage_two"
+                                                     class="p-2 text-center ease-in-out duration-150 z-[10] relative cursor-pointer"
+                                                     onclick="setANC(4)">
+                                                    <div id="stage_two_button"
+                                                         class="w-1 h-1 bg-white ease-in-out duration-200 rounded-full float-right">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-1/3 grid grid-cols-2 grid-rows-1 ease-out duration-200 gap-4 m-auto text-[10px] opacity-100">
+                                                <div id="desc_one" class="p-2 text-center ">LOW</div>
+                                                <div id="desc_two" class="p-2 text-center ">HIGH</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END PAGE 1 -->
+                                    <!-- PAGE 2 -->
+                                    <div id="page_2_container" class="ease-in-out duration-300" style="margin-top: -195px; position: relative; z-index: -1; opacity: 0;">
+                                        <div id="settings_title" class="w-fit flex m-auto text-md mb-5 mt-2">
+                                            QUICK SETTINGS
+                                        </div>
+                                        <div class="p-5 -mt-5">
+                                            <div class="settings-switch-container overflow-hidden">
+                                                <div id="inearswitchbutton" class="settings-switch-button">
+                                                    <div id="inearswitchindicator" class="settings-switch-indicator">
+                                                        <input type="checkbox" id="in_ear" class="settings-switch-checkbox" onclick="setInEar()"
+                                                               style="opacity: 0; width: 300px; height:300px; cursor: pointer; margin-top: -6px; margin-left: -35px" />
+                                                    </div>
+                                                </div>
+                                                <div class="settings-switch-label">In Ear Detection</div>
+                                            </div>
+                                            <div class="settings-switch-container overflow-hidde">
+                                                <div id="lowlatencyswitchbutton" class="settings-switch-button">
+                                                    <div id="lowlatencyswitchindicator" class="settings-switch-indicator">
+                                                        <input type="checkbox" id="low_latency" class="settings-switch-checkbox" onclick="setLatencyMode()"
+                                                               style="opacity: 0; width: 300px; height:300px; cursor: pointer; margin-top: -6px; margin-left: -35px" />
+                                                    </div>
+                                                </div>
+                                                <div class="settings-switch-label">Low Latency Mode</div>
+                                            </div>
+                                            <div id="seperator" class="">
+                                                <div class="h-[2px] bg-gray-500 w-full rounded-xl mt-5" style="opacity: 0.5;">
+                                                </div>
+                                            </div>
+                                            <div class="grid grid-cols-2 grid-rows-2 -ml-5 mt-5">
+                                                <div id="setting_title" class="text-[12px] ml-5 text-gray-200 w-max">
+                                                    Firmware Version
+                                                </div>
+                                                <div id="settings_subtitle_firmware" class="text-[12px] ml-5 text-gray-500 flex" style="justify-content: right;">
+                                                    1.0.0
+                                                </div>
+                                                <div id="setting_title" class="text-[12px] ml-5 text-gray-200 w-max">
+                                                    Bluetooth Adress
+                                                </div>
+                                                <div id="settings_subtitle_mac" class="text-[12px] ml-5 text-gray-500 flex" style="justify-content: right;">
+                                                    00:00:00:00:00:00
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END PAGE 2 -->
+                                </div>
+                            </div>
+                            <div id="selector" class="grid grid-cols-3 grid-rows-1 mt-1" id="page_selector">
+                                <div id="left-arrow" onclick="switchPage(1)">
+                                    <div>
+                                        <svg class="hover:fill-[#1B1D1F] fill-white cursor-pointer z-10 relative duration-300 ease-in-out" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px"
+                                             viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+                                             xml:space="preserve">
+                                        <g>
+                                        <path d="M33.934,54.458l30.822,27.938c0.383,0.348,0.864,0.519,1.344,0.519c0.545,0,1.087-0.222,1.482-0.657
+                                           c0.741-0.818,0.68-2.083-0.139-2.824L37.801,52.564L64.67,22.921c0.742-0.818,0.68-2.083-0.139-2.824
+                                           c-0.817-0.742-2.082-0.679-2.824,0.139L33.768,51.059c-0.439,0.485-0.59,1.126-0.475,1.723
+                                           C33.234,53.39,33.446,54.017,33.934,54.458z" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 grid-rows-1">
+                                    <div id="stage_one_selector" class="p-2 text-center ease-in-out duration-150 z-[10] relative cursor-pointer mt-1">
+                                        <div id="stage_one_selector_button" class="w-1 h-1 ease-in-out duration-200 rounded-full float-right" style="background-color: white;"></div>
+                                    </div>
+                                    <div id="stage_two_selector" class="p-2 text-center ease-in-out duration-150 z-[10] relative cursor-pointer mt-1">
+                                        <div id="stage_two_selector_button" class="w-1 h-1 ease-in-out duration-200 rounded-full float-left" style="background-color: #1B1D1F;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="right-arrow" class="text-right" onclick="switchPage(0)">
+                                    <svg style="transform: rotate(180deg); float: right;" class="hover:fill-[#1B1D1F] fill-white cursor-pointer duration-300 ease-in-out" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px"
+                                         viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+                                         xml:space="preserve">
+                                    <g>
+                                    <path d="M33.934,54.458l30.822,27.938c0.383,0.348,0.864,0.519,1.344,0.519c0.545,0,1.087-0.222,1.482-0.657
+                                           c0.741-0.818,0.68-2.083-0.139-2.824L37.801,52.564L64.67,22.921c0.742-0.818,0.68-2.083-0.139-2.824
+                                           c-0.817-0.742-2.082-0.679-2.824,0.139L33.768,51.059c-0.439,0.485-0.59,1.126-0.475,1.723
+                                           C33.234,53.39,33.446,54.017,33.934,54.458z" />
+                                            </g>
+                                        </svg>
+                                </div>
+                            </div>
+                            <div class="rounded-xl pt-5 pb-5 mt-1 grid grid-cols-2 grid-rows-1 -ml-16" id="case_ear">
+                                <div id="setting_title" class=" text-sm ml-5 text-gray-200">
+                                    <img id="case-img" src="../assets/ear_one_white_case.png" class='mr-2 h-20 -mt-5 -mb-5 float-right' onclick="selectCaseColorPopup()"/>
+                                </div>
+                                <div id="settings_subtitle" class="text-sm ml-5 text-white">
+                                    <div id="battery-c" class='text-center'>
+                                        40% CASE
+                                    </div>
+                                    <div id="battery_bar" class='w-20 m-auto mt-2 rounded-md bg-gray-600'>
+                                        <div id="battery_bar_fill_c" class="bg-white h-2 w-1/2 rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="settings-switches mt-12 bg-[#1B1D1F] rounded-xl pt-2 pb-2 ease-in-out duration-300 h-[270px]"
+                             id="pages_container_two">
+                            <div id="settings_title" class="w-fit flex m-auto text-md">
+                                EQUALIZER
+                            </div>
+                            <div class="p-5">
+                                <div id="chart" style="width:100%; height: 100px; overflow: hidden;">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                                <div class="grid grid-rows-2 grid-cols-2 gap-4 -mb-3">
+                                    <button id="buttonEQBalanced" class="p-2 pl-4 pr-4 bg-black border-none rounded-full mr-3 hover:bg-[#1B1D1F] ease-in-out duration-300 w-full"
+                                            onclick="EQButtonPress(0)"
+                                            style="background-color: white; color: black;">
+                                        Balanced
+                                    </button>
+                                    <button id="buttonEQBass" class="p-2 pl-4 pr-4 bg-black border-none border-[1px] rounded-full hover:bg-[#1B1D1F] ease-in-out duration-300 w-full"
+                                            onclick="EQButtonPress(3)">
+                                        More Bass
+                                    </button>
+                                    <button id="buttonEQTreble" class="p-2 pl-4 pr-4 bg-black border-none border-[1px] rounded-full hover:bg-[#1B1D1F] ease-in-out duration-300 w-full"
+                                            onclick="EQButtonPress(2)">
+                                        More Treble
+                                    </button>
+                                    <button id="buttonEQVoice" class="p-2 pl-4 pr-4 bg-black border-none border-[1px] rounded-full hover:bg-[#1B1D1F] ease-in-out duration-300 w-full"
+                                            onclick="EQButtonPress(1)">
+                                        Voice
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="settings_subtitle" class="text-[8px] text-center mt-5 text-gray-500">
+                    This app is an unofficial app for Nothing(R) Ear Products, Nothing Technology Limited is not responsible for the content of this app or any of its features.<br /> This app is not endorsed by Nothing Technology Limited and is not affiliated with Nothing Technology Limited in any way.
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/transitions.js"></script>
+    <script src="../js/one.js"></script>
+    <script src="../js/eq_one.js"></script>
+    <script type="text/javascript" src="http://localhost:17079/js/control.js"></script>
+    <script type="text/javascript">
+        eel.expose(updateBattery);
+        eel.expose(getDevicesForList);
+        eel.expose(connectDeviceFromList);
+        eel.expose(showErrorPopup);
+        eel.expose(toggleConnectionOverlay);
+        eel.expose(updateBudsInfo);
+        eel.expose(getANCStatus);
+        eel.expose(setANCStatus);
+        eel.expose(getModelInfo);
+        eel.expose(setBattery);
+        eel.expose(setAncStrengthHigh);
+        eel.expose(setAncStrengthLow);
+        eel.expose(setAncToNC);
+        eel.expose(setAncToTransparent);
+        eel.expose(setAncToOff);
+        eel.expose(setInEarCheckbox);
+        eel.expose(setLatencyModeCheckbox);
+        eel.expose(setEQfromRead);
+        eel.expose(updateBudsInfo);
+        eel.expose(setFirmwareText);
+        eel.expose(setMacAdressText);
+        eel.expose(updateGesturesFromArray);
+        eel.expose(getCaseColor);
+        window.addEventListener('load', () => {
+            eel.initData();
+        });
+    </script>
+</body>
+
+</html>

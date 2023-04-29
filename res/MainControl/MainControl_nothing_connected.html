@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="http://localhost:17079/eel.js"></script>
+<script src="../js/nothing_connected.js"></script>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ear (PC)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link href="../global.css" rel="stylesheet" />
+    <script>
+        eel.updatePage();
+    </script>
+    <script type="text/javascript" src="http://localhost:17079/js/control.js"></script>
+    <script type="text/javascript">
+        eel.expose(updateBattery);
+        eel.expose(getDevicesForList);
+        eel.expose(connectDeviceFromList);
+        eel.expose(showErrorPopup);
+        eel.expose(toggleConnectionOverlay);
+        eel.expose(updateBudsInfo);
+        eel.expose(getANCStatus);
+        eel.expose(setANCStatus);
+        eel.expose(getModelInfo);
+
+        eel.fetchDevicesinDB()();
+    </script>
+
+</head>
+
+<body style="width: 800px; height: 710px;">
+    <div id="container_one"
+         class=" w-fit bg-black/75 text-white rounded-xl overflow-hidden float-right ease-in-out duration-300"
+         style="font-family: NothingNormal2; height: 710px; width: 800px;">
+        <div id="container_two" class=" w-fit bg-black/50 backdrop-blur-2xl text-white ease-in-out duration-300"
+             style="font-family: NothingNormal2;  height: 710px; width: 800px; margin-bottom: 20px;">
+            <div id="popup_container" class="h-screen w-full absolute opacity-1 ease-in-out duration-300" style="padding-bottom: 20px;">
+                <div id="popup_content" class="z-[1000] text-center">
+                    Select your device
+                    <div id="device_container">
+                    </div>
+                    <div id="scan_button" class="text-center m-auto w-fit -mb-8 mt-3 duration-300  pb-5" onclick="scanNewDevices()">
+                        <div id="scan_button-c" class="p-1 pl-7 -mr-32 pr-7 border-black border-[2px] text-white cursor-pointer rounded-full mr-3 text-sm ease-in-out hover:scale-[105%] duration-150">Scan</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="w-full h-8 absolute" style="z-index: 1300;">
+                <div id="draggable" class="w-[750px] h-8 absolute"></div>
+                <div style="font-family: Ndot-55; float: right; margin-right: 20px; margin-top: 5px; cursor: pointer; z-index: 400;"
+                     onclick="window.close()">X</div>
+            </section>
+
+</body>
+</html>

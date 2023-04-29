@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="http://localhost:17079/eel.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../global.css" rel="stylesheet" />
+</head>
+<body style="width: 650px; height: 300px;">
+    <div id="container_one" class="h-screen w-fit bg-black/75 text-white rounded-xl overflow-hidden float-right ease-in-out duration-300" style="font-family: NothingNormal2">
+        <div id="container_two" class="h-screen w-fit bg-black/50 backdrop-blur-2xl text-white ease-in-out duration-300" style="font-family: NothingNormal2">
+            <section style="z-index: 100; opacity: 0; position: absolute;" id="back">Back</section>
+            <div id="cont">
+                <div id="test" class="bg-[#1B1D1F] top-20 left-10 absolute ease-in-out duration-300" style="opacity: 0">
+
+                </div>
+                <!-- <IoSettingsOutline class="text-white h-7 w-7 mt-5 ml-5 -mb-12 absolute ease-in-out duration-300 cursor-pointer hover:text-[#1B1D1F]" id="settings_icon" /> -->
+                <div class="grid grid-cols-2 grid-rows-1 gap-4 ml-5 w-fill h-[500px]">
+                    <div name="logo" class="h-screen w-full">
+                        <div id="prod_name" style="font-family: Ndot-55; opacity: 0" class="w-full text-center mt-5 -mb-5 text-4xl duration-300 ease-in-out">ear (1)</div>
+                        <div id="image-container" class='justify-center items-center flex relative ease-in-out duration-300'>
+                            <div id="left_ear" class='w-52 w-34 ease-in-out duration-300'>
+                                <img src="../assets/ear1_02.png" class='h-44 w-34 margin-auto duration-500 ease-in-out relative' id="left_ear_peace" style="margin-top: 400px; z-Index:100; margin-left: 10px; transform: scale(0.8);" />
+                                <div id="left_ear_battery" class="ease-in-out duration-300" style="opacity: 0;">
+                                    <div id="battery-l" class='text-center'>
+                                        40% L
+                                    </div>
+                                    <div id="battery_bar_l" class='w-20 m-auto mt-2 rounded-md bg-gray-600'>
+                                        <div id="battery_bar_fill_l" class="bg-white h-2 rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="right_ear" class='w-52 w-34 ease-in-out duration-300'>
+                                <img src="../assets/ear1_01.png" class='h-44 w-34 margin-auto duration-[2s] ease-in-out' id="right_ear_peace" style="margin: auto; margin-top: 400px; margin-left: 20px; transform: scale(0.8)" />
+                                <div id="right_ear_battery" class="ease-in-out duration-300" style="opacity: 0">
+                                    <div id="battery-r" class='text-center'>
+                                        40% R
+                                    </div>
+                                    <div id="battery_bar_r" class='w-20 m-auto mt-2 rounded-md bg-gray-600'>
+                                        <div id="battery_bar_fill_r" class="bg-white h-2 rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pages_container" class="ease-in-out duration-300" style="opacity: 0">
+                        <div id="eq_container" class="mt-12 bg-[#1B1D1F] rounded-xl pt-2 pb-2">
+                            <div class="w-fit flex m-auto text-md mb-5">
+                                NOISE CONTROL
+                            </div>
+                            <div id="selector" class="w-20 p-2 bg-white rounded-full h-[38px] -mb-[58px] ml-4 z-1 relative ease-in-out duration-200"></div>
+                            <div class="w-fit grid grid-cols-3 grid-rows-1 bg-black gap-4 m-auto mt-5 rounded-full ml">
+                                <div id="one"
+                                     class="p-2 text-center w-20 ease-in-out duration-150 z-[10] relative text-white cursor-pointer"
+                                     onclick="setANC(0)">
+                                    <svg class="h-[23px] mt-[1px] ml-[20px] relative" id="ANC_on" style="fill: white !important;">
+                                        <use xlink:href="../assets/anc_on_icon.svg#load"></use>
+                                    </svg>
+                                </div>
+                                <div id="two"
+                                     class="p-2 text-center w-20 ease-in-out duration-150 z-[10] relative text-white cursor-pointer"
+                                     onclick="setANC(1)">
+                                    <svg class="h-[23px] mt-[1px] ml-[20px] relative" id="trans_on" style="fill: white !important;">
+                                        <use xlink:href="../assets/anc_transparent_icon.svg#load"></use>
+                                    </svg>
+                                </div>
+                                <div id="three"
+                                     class="p-2 text-center w-20 ease-in-out duration-150 z-[10] relative text-white cursor-pointer"
+                                     onclick="setANC(2)">
+                                    <svg class="h-[23px] mt-[1px] ml-[20px] relative" id="anc_off" style="fill: white !important;">
+                                        <use xlink:href="../assets/anc_off_icon.svg#load"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-fit grid grid-cols-3 grid-rows-1 gap-4 m-auto text-[10px]">
+                                <div id="desc_one" class="p-2 text-center w-20">NOISE<br />CANCELLATION</div>
+                                <div id="desc_two" class="p-2 text-center w-20">TRANSPARENCY</div>
+                                <div id="desc_three" class="p-2 text-center w-20">Off</div>
+                            </div>
+                            <div id="anc_strength_selector" class="ease-in-out duration-300">
+                                <div class="w-1/3 grid ease-out duration-200 grid-cols-2 grid-rows-1 bg-black gap-4 m-auto mt-2 rounded-full h-5 opacity-100">
+                                    <div id="stage_one"
+                                         class="p-2 text-center ease-in-out duration-150 z-[10] relative cursor-pointer"
+                                         onclick="setANC(3)">
+                                        <div id="stage_one_button"
+                                             class="w-1 h-1 bg-white ease-in-out duration-200 rounded-full"></div>
+                                    </div>
+                                    <div id="stage_two"
+                                         class="p-2 text-center ease-in-out duration-150 z-[10] relative cursor-pointer"
+                                         onclick="setANC(4)">
+                                        <div id="stage_two_button"
+                                             class="w-1 h-1 bg-white ease-in-out duration-200 rounded-full float-right">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/3 grid grid-cols-2 grid-rows-1 ease-out duration-200 gap-4 m-auto text-[10px] opacity-100">
+                                    <div id="desc_one" class="p-2 text-center ">LOW</div>
+                                    <div id="desc_two" class="p-2 text-center ">HIGH</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PSEUDOELEMNTS TO NOT CUASE JS ERROS TO LAZY TO MAKE THE CODE CHECK EVERY THIME IF THE ELEMNTS EXIST LMAO -->
+                <div id="settings_subtitle_mac" class="hidden"></div>
+                <div id="settings_subtitle_firmware" class="hidden"></div>
+                <div id="battery-c" class="hidden"></div>
+                <div id="battery_bar_fill_c" class="hidden"></div>
+                <div id="ring_button" class="hidden"></div>
+            </div>
+        </div>
+</body>
+</html>
+<script src="../js/transitions.js"></script>
+<script src="../js/one.js"></script>
+<script type="text/javascript" src="http://localhost:17079/js/control.js"></script>
+<script type="text/javascript">
+    eel.expose(updateBattery);
+    eel.expose(getDevicesForList);
+    eel.expose(connectDeviceFromList);
+    eel.expose(showErrorPopup);
+    eel.expose(toggleConnectionOverlay);
+    eel.expose(updateBudsInfo);
+    eel.expose(getANCStatus);
+    eel.expose(setANCStatus);
+    eel.expose(getModelInfo);
+    eel.expose(setBattery);
+    eel.expose(setAncStrengthHigh);
+    eel.expose(setAncStrengthLow);
+    eel.expose(setAncToNC);
+    eel.expose(setAncToTransparent);
+    eel.expose(setAncToOff);
+    eel.expose(setInEarCheckbox);
+    eel.expose(setLatencyModeCheckbox);
+    eel.expose(updateBudsInfo);
+    eel.expose(setFirmwareText);
+    eel.expose(setMacAdressText);
+    eel.expose(updateGesturesFromArray);
+    window.addEventListener('load', () => {
+        eel.initData();
+    });
+</script>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="http://localhost:17079/eel.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../global.css" rel="stylesheet" />
+</head>
+<body style="width: 300px; height: 300px;">
+    <div id="container_one" class="h-screen w-fit bg-black/75 text-white rounded-xl overflow-hidden float-right ease-in-out duration-300" style="font-family: NothingNormal2">
+        <div id="container_two" class="h-screen w-fit bg-black/50 backdrop-blur-2xl text-white ease-in-out duration-300" style="font-family: NothingNormal2">
+            <section style="z-index: 100; opacity: 0; position: absolute;" id="back">Back</section>
+            <div id="cont">
+                <div id="test" class="bg-[#1B1D1F] top-20 left-10 absolute ease-in-out duration-300" style="opacity: 0">
+
+                </div>
+                <!-- <IoSettingsOutline class="text-white h-7 w-7 mt-5 ml-5 -mb-12 absolute ease-in-out duration-300 cursor-pointer hover:text-[#1B1D1F]" id="settings_icon" /> -->
+                <div class="grid grid-cols-1 grid-rows-1 m-autp0 w-fill h-[500px]">
+                    <div name="logo" class="h-screen w-full ml-[5px]">
+                        <div id="prod_name" style="font-family: Ndot-55; opacity: 0" class="w-full text-center mt-5 text-4xl duration-300 ease-in-out">ear (stick)</div>
+                        <div id="image-container" class='justify-center items-center flex relative ease-in-out duration-300'>
+                            <div id="left_ear" class='w-52 w-34 ease-in-out duration-300'>
+                                <img src="../assets/earStick_02.png" class='h-44 w-34 margin-auto duration-500 ease-in-out relative' id="left_ear_peace" style="margin-top: 450px; margin-left: 10px; z-Index:100; transform: scale(0.80);" />
+                                <div id="left_ear_battery" class="ease-in-out duration-300" style="opacity: 0;">
+                                    <div id="battery-l" class='text-center'>
+                                        40% L
+                                    </div>
+                                    <div id="battery_bar_l" class='w-20 m-auto mt-2 rounded-md bg-gray-600'>
+                                        <div id="battery_bar_fill_l" class="bg-white h-2 w-1/2 rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="right_ear" class='w-52 w-34 ease-in-out duration-300'>
+                                <img src="../assets/earStick_01.png" class='h-44 w-34 margin-auto duration-[2s] ease-in-out' id="right_ear_peace" style="margin: auto; margin-top: 450px; margin-left: 10px; transform: scale(0.80);" />
+                                <div id="right_ear_battery" class="ease-in-out duration-300" style="opacity: 0">
+                                    <div id="battery-r" class='text-center'>
+                                        40% R
+                                    </div>
+                                    <div id="battery_bar_r" class='w-20 m-auto mt-2 rounded-md bg-gray-600'>
+                                        <div id="battery_bar_fill_r" class="bg-white h-2 w-1/2 rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pages_container" class="ease-in-out duration-300" style="opacity: 0; display: none;">
+                        <div class="settings-switches mt-8 mr-3 bg-[#1B1D1F] rounded-xl pt-2 pb-2 h-60">
+                            <div id="settings_title" class="w-fit flex m-auto text-md mb-5">
+                                QUICK SETTINGS
+                            </div>
+                            <div class="p-5 -mt-5">
+                                <div class="settings-switch-container">
+                                    <div id="inearswitchbutton" class="settings-switch-button">
+                                        <div id="inearswitchindicator" class="settings-switch-indicator">
+                                            <input type="checkbox" id="in_ear" class="settings-switch-checkbox"
+                                                   style="opacity: 0; width: 300px; height:300px; cursor: pointer; margin-top: -6px; margin-left: -35px" />
+                                        </div>
+                                    </div>
+                                    <div class="settings-switch-label">In Ear Detection</div>
+                                </div>
+                                <div class="settings-switch-container">
+                                    <div id="lowlatencyswitchbutton" class="settings-switch-button">
+                                        <div id="lowlatencyswitchindicator" class="settings-switch-indicator">
+                                            <input type="checkbox" id="low_latency" class="settings-switch-checkbox"
+                                                   style="opacity: 0; width: 300px; height:300px; cursor: pointer; margin-top: -6px; margin-left: -35px" />
+                                        </div>
+                                    </div>
+                                    <div class="settings-switch-label">Low Latency Mode</div>
+                                </div>
+                                <div id="seperator" class="">
+                                    <div class="h-[2px] bg-gray-500 w-full rounded-xl mt-5" style="opacity: 0.5;">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 grid-rows-2 -ml-5 mt-5">
+                                    <div id="setting_title" class="text-[12px] ml-5 text-gray-200 w-max">
+                                        Firmware Version
+                                    </div>
+                                    <div id="settings_subtitle_firmware" class="text-[12px] ml-5 text-gray-500 flex" style="justify-content: right;">
+                                        1.0.0
+                                    </div>
+                                    <div id="setting_title" class="text-[12px] ml-5 text-gray-200 w-max">
+                                        Bluetooth Adress
+                                    </div>
+                                    <div id="settings_subtitle_mac" class="text-[12px] ml-5 text-gray-500 flex" style="justify-content: right;">
+                                        00:00:00:00:00:00
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PSEUDOELEMNTS TO NOT CUASE JS ERROS TO LAZY TO MAKE THE CODE CHECK EVERY THIME IF THE ELEMNTS EXIST LMAO -->
+                <div id="settings_subtitle_mac" class="hidden"></div>
+                <div id="settings_subtitle_firmware" class="hidden"></div>
+                <div id="battery-c" class="hidden"></div>
+                <div id="battery_bar_fill_c" class="hidden"></div>
+                <div id="ring_button_l" class="hidden"></div>
+                <div id="ring_button_r" class="hidden"></div>
+                <div id="case_ear" class="hidden"></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/sticks.js"></script>
+<script type="text/javascript" src="http://localhost:17079/js/control.js"></script>
+<script type="text/javascript">
+    eel.expose(updateBattery);
+    eel.expose(getDevicesForList);
+    eel.expose(connectDeviceFromList);
+    eel.expose(showErrorPopup);
+    eel.expose(toggleConnectionOverlay);
+    eel.expose(updateBudsInfo);
+    eel.expose(getANCStatus);
+    eel.expose(setANCStatus);
+    eel.expose(getModelInfo);
+    eel.expose(setBattery);
+    eel.expose(setInEarCheckbox);
+    eel.expose(setLatencyModeCheckbox);
+    eel.expose(updateBudsInfo);
+    eel.expose(setFirmwareText);
+    eel.expose(setMacAdressText);
+    window.addEventListener('load', () => {
+        eel.initData();
+    });
+</script>

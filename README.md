@@ -1,32 +1,42 @@
 # ear (PC) [unofficial]
 
+![Ear(PC) Logo](icons/png/256x256.png)
+
+
 Hi! This is the repo for our unofficial port of Nothing X to PC.
 This Github repo only include frontend part for everyone to contribute. The backend is kept private for the moment.
 
 
 # Install
 1. Make sure you have a Windows computer running at least Windows 10.
-2. Download the latest release from [here](https://github.com/radiance-project/ear-pc/releases)
+2. Download launcher.exe in the latest release from [here](https://github.com/radiance-project/ear-pc/releases)
+3. Run the installer and let it download components (the installer will allow to update the app later)
+4. Launch the app and enjoy!
 
 If you want to contribute, we recommend cloning the repo using
-```git clone https://github.com/Lisra-git/ear-PC.git```
+```git clone https://github.com/radiance-project/ear-pc.git```
 
-You can launch the app by running ```python main.pyc``` in the root directory of the project. 
-You may require dependancies from node.js such as electron and eel and pybluez for python.
+You can build your dev environment this way:
+1. Install Python 3.10.0 from [here] (https://www.python.org/downloads/release/python-3100/)
+2. Install Pybluez using ``python -m pip install -e git+https://github.com/pybluez/pybluez.git#egg=pybluez ``
+3. Create a folder to store the project.
+3. Get electron.zip from the latest version and extract it to the root directory of the folder.
+4. Take the frontend files (res folder) and place the folder in the root directory of your folder.
+5. Take main.pyc and put it in the root directory of your folder.
+6. Run using ``python main.pyc`` in the root directory of your folder.
 
-Pybluez can be installed using ```python -m pip install -e git+https://github.com/pybluez/pybluez.git#egg=pybluez```
 
 ## FAQ
 
 > Are you planning on bringing this to mac and linux as well?
 
 Mac is already worked on, but since Pybluez rely on old libraries, some work around Apple BT API is needed. 
-Linux already work unofficially if you launch the app using ```python main.pyc``` in the root directory of the project and install the dependancies.
+Linux is also coming soon.
 We are working on a way to make it work with the installer.
 
 > Why is only the frontend public?
 
-For the security of users, the entire backend is kept private for the moment, a mishandling of these tools could affect the proper functioning of the devices, Nothing(R), or Lisra-git or any other contributor to the project can not be held responsible in case of mishandling related to a modified use of the project outside of its intended use and safety measures in place. 
+For the security of users, the entire backend is kept private for the moment, a mishandling of these tools could affect the proper functioning of the devices, Nothing(R), or Lisra-git or any other contributor to the project cannot be held responsible in case of mishandling related to a modified use of the project outside of its intended use and safety measures in place. 
 
 > What devices are supported?
 
@@ -45,10 +55,15 @@ Easy, just create a new issue or push request and we will merge your changes aft
 <br>
 If you still have questions, don't hesitate to reach out to [RapidZapper](https://discord.com/users/577059129097584640) or [Bendix](https://discord.com/users/462340067864870923) on Discord
 
+## Credits and Acknowledgements
+- RapidZapper for the idea and backend work
+- [Bendix](https://www.mrbrickstar.de/) for the frontend work 
+- [DerrenGoneDigital](https://twitter.com/DerrenDigital) for the logo
+
 ## LEGAL
 
-This application and code is published under the GNU General Public License v3.0. (https://github.com/Lisra-git/ear-PC/blob/main/LICENSE)
+This application and code is published under the GNU General Public License v3.0. (https://github.com/radiance-project/ear-pc/blob/main/LICENSE)
 
-Nothing LTD or any of its affiliates, subsidiaries, or related entities (collectively, “Nothing LTD”) is exempt from license and can use this app for any purpose, including commercial purposes, without compensation to the developers of this app. Nothing LTD is not required to comply with the terms of the GNU General Public License v3.0.
+Nothing Technology Limited or any of its affiliates, subsidiaries, or related entities (collectively, “Nothing Technology”) is a valid licensee and can use this app for any purpose, including commercial purposes, without compensation to the developers of this app. Nothing Technology is not required to comply with the terms of the GNU General Public License v3.0.
 
-This app is developed by RapidZapper and Bendix and is not affiliated with, sponsored by, or endorsed by Nothing LTD. The developers of this app take no responsibility for the accuracy or completeness of the content and materials provided in this app. The content and materials contained in this app, including but not limited to text, graphics, logos, images, and audio/visual materials, are proprietary to Nothing LTD, 11 Staple Inn, London WC1V 7QH and are protected by copyright, trademark, and other intellectual property laws. These materials may not be used without the express written permission of Nothing LTD.
+This app is developed by RapidZapper and Bendix and is not affiliated with, sponsored by, or endorsed by Nothing Technology. The developers of this app take no responsibility for the accuracy or completeness of the content and materials provided in this app. The content and materials contained in this app, including but not limited to text, graphics, logos, images, and audio/visual materials, are proprietary to Nothing Technology Limited, 80 Cheapside, London EC2V 6EE and are protected by copyright, trademark, and other intellectual property laws. These materials may not be used without the express written permission of Nothing Technology. Nothing Technology reserves all rights.
