@@ -176,14 +176,14 @@ def main():
 		print("Ear (PC) is ready to use")
 		#add shortcut to ear-pc.exe to desktop creating lnk
 		shell = Dispatch('WScript.Shell')
-		shortcut = shell.CreateShortCut(os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') + '\\Ear (PC).lnk')
+		shortcut = shell.CreateShortCut(os.path.join(os.path.join(winshell.desktop(), '\\Ear (PC).lnk')))
 		shortcut.Targetpath = os.path.join(appdir, 'ear-pc.exe')
 		shortcut.WorkingDirectory = appdir
 		shortcut.IconLocation = os.path.join(appdir, 'electron/electron.exe')
 		shortcut.save()
 		#add shortcut to ear-pc.exe to start menu creating lnk
 		shell = Dispatch('WScript.Shell')
-		shortcut = shell.CreateShortCut(os.path.join(os.path.join(os.environ['USERPROFILE']), 'AppData/Roaming/Microsoft/Windows/Start Menu/Programs') + '\\Ear (PC).lnk')
+		shortcut = shell.CreateShortCut(os.path.join(os.path.join(winshell.start_menu(), '\\Ear (PC).lnk')))
 		shortcut.Targetpath = os.path.join(appdir, 'ear-pc.exe')
 		shortcut.WorkingDirectory = appdir
 		shortcut.IconLocation = os.path.join(appdir, 'electron/electron.exe')
