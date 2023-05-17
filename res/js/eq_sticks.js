@@ -164,7 +164,7 @@ function setTreble(e) {
         datasets: [{
             backgroundColor: gradient,
             label: '# of Votes',
-            data: [3, 10, 3],
+            data: [3, 3, 10],
             borderWidth: 1,
         },
         ]
@@ -184,7 +184,7 @@ function setVoice(e) {
         datasets: [{
             backgroundColor: gradient,
             label: '# of Votes',
-            data: [3, 3, 10],
+            data: [3, 10, 3],
             borderWidth: 1,
         },
         ]
