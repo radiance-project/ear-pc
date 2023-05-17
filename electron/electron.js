@@ -56,24 +56,28 @@ function loadURLWithRetry(window, url, shouldLaunch = false) {
         window.loadURL(url);
         return;
     }
-    const timeout = setTimeout(() => {
-        //load url and get response code
-        window.loadURL(url, (response) => {
-            if (response && response.statusCode == 200) {
-                isLaunched = true;
+    if (!isLaunched) {
+        const timeout = setTimeout(() => {
+            if (response && response.statusCode === 200) {
+                clearTimeout(timeout);
             } else {
                 rebootProcess();
             }
         });
-    }, 3000);
-    window.webContents.on('did-fail-load', () => {
+    }, 1000);
+}
+window.webContents.on('did-fail-load', () => {
+    if (!isLaunched) {
+        rebootProcess();
+    } else {
         clearTimeout(timeout);
-        if (!isLaunched) {
-            rebootProcess();
-        } else {
-            window.loadURL(url);
-        }
-    });
+        window.loadURL(url);
+    }
+});
+//on loaded successfully
+window.webContents.on('did-finish-load', () => {
+    isLaunched = true;
+});
 }
 
 function rebootProcess() {
