@@ -56,16 +56,16 @@ function loadURLWithRetry(window, url, shouldLaunch = false) {
         window.loadURL(url);
         return;
     }
-    if (!isLaunched) {
-        const timeout = setTimeout(() => {
-            if (response && response.statusCode === 200) {
-                clearTimeout(timeout);
+    const timeout = setTimeout(() => {
+        //load url and get response code
+        window.loadURL(url, (response) => {
+            if (response && response.statusCode == 200) {
+                isLaunched = true;
             } else {
                 rebootProcess();
             }
         });
-    }, 1000);
-}
+    }, 100);
 window.webContents.on('did-fail-load', () => {
     if (!isLaunched) {
         rebootProcess();
