@@ -169,7 +169,7 @@ def main():
 	else:
 		if not os.path.exists(appdir):
 			os.makedirs(appdir)
-		print("This is the first install, the launcher will download package required to use Ear(PC)\nThe estimated download size is around 150MB")
+		print("This is the first install, the launcher will download packages required to use Ear(PC)\nThe estimated download size is around 150MB")
 		latest = getLatestRelease()
 		print("Downloading Ear (PC) version " + latest)
 		downloadLatestRelease('all')
