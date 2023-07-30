@@ -75,6 +75,14 @@ function getModelInfo(modelID) {
             rightImg: "../assets/ear_two_white_right.png",
             duoImg: "../assets/ear_two_white_duo.png",
             isANC: true
+        },
+        "acc520": {
+            name: "Nothing Ear (2)",
+            leftImg: "../assets/ear_two_black_left.png",
+            caseImg: "../assets/ear_two_black_case.png",
+            rightImg: "../assets/ear_two_black_right.png",
+            duoImg: "../assets/ear_two_black_duo.png",
+            isANC: true
         }
     };
     return models[modelID];
@@ -192,6 +200,11 @@ function toggleConnectionOverlay(show, model, isTray) {
             window.ipcRenderer.send('load-url', 1, 'http://localhost:17079/MainControl/MainControl_sticks.html');
             window.ipcRenderer.send('load-url', 2, 'http://localhost:17079/tray/sticks.html');
         } else if (model == "dee8c0") {
+            window.ipcRenderer.send('tray-resize', 2, 650, 300);
+            window.ipcRenderer.send('tray-position', 2, width - 650, height - 300);
+            window.ipcRenderer.send('load-url', 1, 'http://localhost:17079/MainControl/MainControl_two.html');
+            window.ipcRenderer.send('load-url', 2, 'http://localhost:17079/tray/two.html');
+        } else if (model == "acc520") {
             window.ipcRenderer.send('tray-resize', 2, 650, 300);
             window.ipcRenderer.send('tray-position', 2, width - 650, height - 300);
             window.ipcRenderer.send('load-url', 1, 'http://localhost:17079/MainControl/MainControl_two.html');
