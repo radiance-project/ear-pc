@@ -8,19 +8,16 @@
 ![Ear(PC) Logo](icons/png/256x256.png)
 
 Hi! This is the repo for our unofficial port of Nothing X to PC.
-This Github repo only includes the frontend part for everyone to contribute. The backend is kept private for the moment, more on that in our faq.
+This GitHub repo only includes the frontend part for everyone to contribute. The backend is kept private for the moment, more on that in our faq.
 
 </div>
 
 # 📖 Table of Contents
+- [🚀 Installation](#-install)
 - [📦 Features](#-features)
-- [📂 Repository Structure](#-repository-structure)
-- [🚀 Getting Started](#-getting-started)
-    - [🔧 Installation](#-installation)
-    - [🤖 Running Crypto-Exchange](#-running-Crypto-Exchange)
-    - [🧪 Tests](#-tests)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- [🤔 FAQ](#-faq)
+- [🤝 Credits & Acknowledgments](#-credits-and-acknowledgements)
+- [⚖️ Legal](#-legal)
 
 
 <hr>
