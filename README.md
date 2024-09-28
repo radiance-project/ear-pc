@@ -6,6 +6,8 @@
 Hi! This is the repo for our unofficial port of Nothing X to PC.
 This Github repo only includes the frontend part for everyone to contribute. The backend is kept private for the moment, more on that in our faq.
 
+As of September 2024, Ear (PC) is discontinued and replaced by a multiplatform solution which continues on the legacy of Ear (PC) https://github.com/radiance-project/ear-pc/releases/tag/Web
+
 
 # Install
 1. Make sure you have a Windows computer running at least Windows 10.
